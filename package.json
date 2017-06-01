@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/debianmaster/maya/issues"
   },
-  "homepage": "https://github.com/debianmaster/maya#readme"
+  "homepage": "https://github.com/debianmaster/maya#readme",
+  "dependencies": {
+    "express":"4.15.2"
+  }
 }
