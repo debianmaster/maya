@@ -7,10 +7,11 @@
   const K8S_PORT = process.env['K8S_PORT'] || '8443'
   const K8S_SECRET = process.env['K8S_SECRET'] ||
     fs.readFileSync('/var/run/secrets/kubernetes.io/serviceaccount/token', 'utf-8')
-
-  const services=["welcome","time","ks","mysql","myapp","blue","bluegreen","green","scm-web-hooks"]
-  const routes=["welcome","time","ks","dbtest","myapp","bluegreen","scm-web-hooks"]
-  const projects=["mycliproject","myjbossapp","consoleproject","binarydeploy","bluegreen","scm-web-hooks"];
+ 
+  const asserts={ service: ["welcome","time","ks","mysql","myapp","blue","bluegreen","green","scm-web-hooks"],
+                  route: ["welcome","time","ks","dbtest","myapp","bluegreen","scm-web-hooks"],
+                  namespace: ["mycliproject","myjbossapp","consoleproject","binarydeploy","bluegreen","scm-web-hooks"]
+  }
 
   var global_namespaces=[];
   var socket=null;
@@ -68,8 +69,8 @@
   function handleADD(type,usr,name,extras){
     console.log(type,"  ",usr," ",name," ",extras);
     if(undefined==usr) return;
+    if(asserts[type].indexOf(name)===-1) return;
     if(undefined==scores[usr]){
-      //if(typeof(usr)=='string' && isNaN(usr)) 
       scores[usr]={};
     }
     if(undefined!=scores[usr]){
