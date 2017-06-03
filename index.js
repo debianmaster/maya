@@ -58,17 +58,6 @@ function makeReq(url,cb){
     req.end()
 }
 
-function getOwner(r){
-  try{
-   
-   var owner=r.substr(r.indexOf('-')+1);
-   return owner;
-  }
-  catch(ex){
-    return "";
-  }
-}
-
 
 
 makeReq('/api/v1/namespaces?watch=true',function(rawEvent){
