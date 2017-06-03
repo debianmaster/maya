@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('fs')
 const https = require('https')
-const io = require('socket.io')(8081);
+const io = require('socket.io')(8080);
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const K8S_HOST = process.env['K8S_HOST'] || '127.0.0.1'
 const K8S_PORT = process.env['K8S_PORT'] || '8443'
