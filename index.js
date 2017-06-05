@@ -69,7 +69,7 @@
   function handleADD(type,usr,name,extras){
     console.log(type,"  ",usr," ",name," ",extras);
     if(undefined==usr) return;
-    if(asserts[type].indexOf(name)===-1) return;
+    //if(asserts[type].indexOf(name)===-1) return;
     if(undefined==scores[usr]){
       scores[usr]={};
     }
